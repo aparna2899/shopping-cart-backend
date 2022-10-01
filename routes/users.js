@@ -10,7 +10,7 @@ router.get('/', function (req, res, next) {
 
 router.post('/register', async (req, res, next) => {
   try {
-    const user = await User.create(req.body);
+    const user = await User.create(req.body.user);
     var token = await user.signToken();
     res.status(201).json({ user: user.userJSON(token) });
   } catch (error) {
@@ -21,7 +21,7 @@ router.post('/register', async (req, res, next) => {
 //login handler
 
 router.post('/login', async (req, res, next) => {
-  const { email, password } = req.body;
+  const { email, password } = req.body.user;
   if (!email || !password) {
     return res.status(400).json({ error: 'Email/password required' });
   }
