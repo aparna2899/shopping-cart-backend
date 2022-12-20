@@ -11,13 +11,11 @@ require('dotenv').config();
 const username = process.env.USERNAME_DB
 const password = process.env.PASSWORD_DB
 
-// mongoose.connect(`mongodb+srv://${username}:${password}@shopping-app.iq7wpyk.mongodb.net/?retryWrites=true&w=majority`,(err) => {
-//   console.log('Connected to Database!')
-// })
-
-mongoose.connect(`mongodb://${username}:${password}@ac-fekkei6-shard-00-00.iq7wpyk.mongodb.net:27017,ac-fekkei6-shard-00-01.iq7wpyk.mongodb.net:27017,ac-fekkei6-shard-00-02.iq7wpyk.mongodb.net:27017/?ssl=true&replicaSet=atlas-zt6tv6-shard-0&authSource=admin&retryWrites=true&w=majority`,(err) => {
-  console.log(err ? err : 'Connected to Database!')
+mongoose.connect(`mongodb+srv://${username}:${password}@shopping-app.iq7wpyk.mongodb.net/?retryWrites=true&w=majority`,(err) => {
+  console.log('Connected to Database!')
 })
+
+
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
