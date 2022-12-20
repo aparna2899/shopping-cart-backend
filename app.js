@@ -11,8 +11,12 @@ require('dotenv').config();
 const username = process.env.USERNAME_DB
 const password = process.env.PASSWORD_DB
 
+// mongoose.connect(`mongodb+srv://${username}:${password}@shopping-app.iq7wpyk.mongodb.net/?retryWrites=true&w=majority`,(err) => {
+//   console.log('Connected to Database!')
+// })
+
 mongoose.connect(`mongodb+srv://${username}:${password}@shopping-app.iq7wpyk.mongodb.net/?retryWrites=true&w=majority`,(err) => {
-  console.log('Connected to Database!')
+  console.log(err ? err : 'Connected to Database!')
 })
 
 var indexRouter = require('./routes/index');
